@@ -10,13 +10,17 @@
 <body>
 	test
 
+
+<div id="content">
+
 <p id="key">
 none
 </p>
 
-<form>
+
 <input type=text size=20 id="inputBox">
-</form>
+</div>
+>>>>>>> gh-pages
 
 <script type="text/javascript">
 
@@ -37,14 +41,14 @@ function setup() {
 }
 
 function setUpAudio() {
-	var soundNames = new Array("c-glass.mp3", "d-glass.mp3", "e-glass.mp3", "f-glass.mp3", "g-glass.mp3");
+	var soundNames = new Array("http://emmawinston.github.io/enderbysroom-samplelibrary/c-glass.mp3", "http://emmawinston.github.io/enderbysroom-samplelibrary/d-glass.mp3", "http://emmawinston.github.io/enderbysroom-samplelibrary/e-glass.mp3", "http://emmawinston.github.io/enderbysroom-samplelibrary/f-glass.mp3", "http://emmawinston.github.io/enderbysroom-samplelibrary/g-glass.mp3", "http://emmawinston.github.io/enderbysroom-samplelibrary/a-glass.mp3");
 
 	for (var i=0; i<soundNames.length; i++) {
 		request = new XMLHttpRequest();
 		request.open('GET', soundNames[i], true);
 		request.responseType = 'arraybuffer';
 		request.addEventListener('load', bufferSound, false);
-		request.num = i;
+		request.num = i; 
 		request.send();
 	}
 }
@@ -58,9 +62,13 @@ function bufferSound(event) {
 
 // var keyStrings = new Array(37, 38, 39, 40, 32); // left, up, right, down, space
 //var keyStrings = new Array('h', 'i', 'j', 'k', ' '); // h, i, j, k, space
-var keyStrings = new Array('w', 'a', 's', 'd', ' ');
+//var keyStrings = new Array('w', 'a', 's', 'd', ' ');
+//var keyStrings = new Array(37, 38, 39, 40, ' '); // left, up, right, down, space
+var keyStrings = new Array("%", "&", "'", "(", " ", "w"); // left, up, right, down, space
+//var keyStrings = new Array('h', 'i', 'j', 'k',  ' '); //    h, i, j, k, space
+//var keyStrings = new Array('w', 'a', 's', 'd', 'f', ' ');
 
-var colors = new Array('red', 'orange', 'yellow', 'green', 'blue');
+//var colors = new Array('red', 'orange', 'yellow', 'green', 'blue');
 
 var keyStates = new Array();
 for (var i=0; i<keyStrings.length; i++) {
@@ -83,7 +91,7 @@ function play(e) {
 				source.connect(myAudioContext.destination);
 				source.noteOn(0);
 			
-				document.body.style.background = colors[i];
+				//document.body.style.background = colors[i];
 			
 				keyStates[i] = true;     
 			}
