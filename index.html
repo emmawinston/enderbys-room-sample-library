@@ -48,7 +48,7 @@ function setUpAudio() {
 
 function bufferSound(event) {
     var request = event.target;
-    buffers[request.num] = myAudioContext.createBuffer(request.response, false, false);
+    buffers[request.num] = myAudioContext.createBuffer(request.response, false, 1);
 }
 
 // UI SETUP
