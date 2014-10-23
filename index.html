@@ -29,13 +29,10 @@ var buffers = new Array();
 window.addEventListener("load", setup);
 
 function setup() {
-	if (window.webkitAudioContext) {
-    myAudioContext = new webkitAudioContext();
-    setUpAudio();
-} else if (window.AudioContext) {
-    myAudioContext = new AudioContext();
-    setUpAudio();
-}
+	if('webkitAudioContext' in window) {
+		myAudioContext = new webkitAudioContext();
+		setUpAudio();
+	}
 	document.getElementById("inputBox").focus();
 }
 
