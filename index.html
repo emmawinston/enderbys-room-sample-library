@@ -29,15 +29,18 @@ var buffers = new Array();
 window.addEventListener("load", setup);
 
 function setup() {
-	if('webkitAudioContext' in window) {
-		myAudioContext = new webkitAudioContext();
-		setUpAudio();
-	}
+	if (window.webkitAudioContext) {
+    myAudioContext = new webkitAudioContext();
+    setUpAudio();
+} else if (window.AudioContext) {
+    myAudioContext = new AudioContext();
+    setUpAudio();
+}
 	document.getElementById("inputBox").focus();
 }
 
 function setUpAudio() {
-	var soundNames = new Array("c-glass.mp3", "/glasssamples/d-glass.mp3", "/glasssamples/e-glass.mp3", "/glasssamples/f-glass.mp3", "/glasssamples/g-glass.mp3");
+	var soundNames = new Array("c-glass.mp3", "d-glass.mp3", "e-glass.mp3", "f-glass.mp3", "g-glass.mp3");
 
 	for (var i=0; i<soundNames.length; i++) {
 		request = new XMLHttpRequest();
