@@ -14,9 +14,11 @@
 none
 </p>
 
-<input type=text size=20 id="inputBox" >
+<form>
+<input type=text size=20 id="inputBox">
+</form>
 
-<script>
+<script type="text/javascript">
 
 // WEB AUDIO SETUP
 
@@ -35,7 +37,7 @@ function setup() {
 }
 
 function setUpAudio() {
-	var soundNames = new Array("/glasssamples/c-glass.mp3", "/glasssamples/d-glass.mp3", "/glasssamples/e-glass.mp3", "/glasssamples/f-glass.mp3", "/glasssamples/g-glass.mp3");
+	var soundNames = new Array("c-glass.mp3", "/glasssamples/d-glass.mp3", "/glasssamples/e-glass.mp3", "/glasssamples/f-glass.mp3", "/glasssamples/g-glass.mp3");
 
 	for (var i=0; i<soundNames.length; i++) {
 		request = new XMLHttpRequest();
@@ -54,9 +56,9 @@ function bufferSound(event) {
 
 // UI SETUP
 
-var keyStrings = new Array(37, 38, 39, 40, 32); // left, up, right, down, space
+// var keyStrings = new Array(37, 38, 39, 40, 32); // left, up, right, down, space
 //var keyStrings = new Array('h', 'i', 'j', 'k', ' '); // h, i, j, k, space
-//var keyStrings = new Array('w', 'a', 's', 'd', 'f');
+var keyStrings = new Array('w', 'a', 's', 'd', ' ');
 
 var colors = new Array('red', 'orange', 'yellow', 'green', 'blue');
 
